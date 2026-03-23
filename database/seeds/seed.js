@@ -12,7 +12,7 @@ async function seed() {
             ('Ana', 17);
         `);
 
-        console.log('🌱 Banco populado com sucesso!');
+        console.log('Banco populado com sucesso!');
     } catch (erro) {
         console.error('Erro ao rodar seed:', erro);
     } finally {
