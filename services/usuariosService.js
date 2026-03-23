@@ -1,40 +1,44 @@
 const db = require('../database/db');
 
-function criarAluno(nome, idade) {
-    const aluno = {
-        id: db.getNextId(),
-        nome,
-        idade
-    };
+async function criarAluno(nome, idade) {
+    const result = await db.query(
+        'INSERT INTO alunos (nome, idade) VALUES ($1, $2) RETURNING *',
+        [nome, idade]
+    );
 
-    db.alunos.push(aluno);
-    return aluno;
+    return result.rows[0];
 }
 
-function listarAlunos() {
-    return db.alunos;
+async function listarAlunos() {
+    const result = await db.query('SELECT * FROM alunos ORDER BY id');
+    return result.rows;
 }
 
-function buscarPorId(id) {
-    return db.alunos.find(a => a.id === id);
+async function buscarPorId(id) {
+    const result = await db.query(
+        'SELECT * FROM alunos WHERE id = $1',
+        [id]
+    );
+
+    return result.rows[0];
 }
 
-function atualizarAluno(id, dados) {
-    const aluno = buscarPorId(id);
-    if (!aluno) return null;
+async function atualizarAluno(id, dados) {
+    const result = await db.query(
+        'UPDATE alunos SET nome = $1, idade = $2 WHERE id = $3 RETURNING *',
+        [dados.nome, dados.idade, id]
+    );
 
-    aluno.nome = dados.nome ?? aluno.nome;
-    aluno.idade = dados.idade ?? aluno.idade;
-
-    return aluno;
+    return result.rows[0];
 }
 
-function deletarAluno(id) {
-    const index = db.alunos.findIndex(a => a.id === id);
-    if (index === -1) return false;
+async function deletarAluno(id) {
+    const result = await db.query(
+        'DELETE FROM alunos WHERE id = $1',
+        [id]
+    );
 
-    db.alunos.splice(index, 1);
-    return true;
+    return result.rowCount > 0;
 }
 
 module.exports = {
