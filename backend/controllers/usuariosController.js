@@ -2,6 +2,11 @@ const service = require('../services/usuariosService');
 
 async function criar(req, res) {
     const { nome, idade } = req.body;
+
+    if (!nome || !idade) {
+        return res.status(400).json({ erro: "Nome e idade são obrigatórios" });
+    }
+
     const aluno = await service.criarAluno(nome, idade);
     res.status(201).json(aluno);
 }
