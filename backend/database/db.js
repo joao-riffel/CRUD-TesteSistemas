@@ -9,7 +9,7 @@ const pool = new Pool({
 });
 
 pool.connect()
-    .then(() => console.log('Conectado ao PostgreSQL'))
+    .then(() => console.log("Conectando no banco:", pool.options.database))
     .catch(err => console.error('Erro na conexão', err));
 
 module.exports = pool;

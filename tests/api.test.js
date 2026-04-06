@@ -1,14 +1,15 @@
 const request = require("supertest");
 const app = require("../backend/server");
 const db = require("../backend/database/db");
+jest.setTimeout(10000);
 
 beforeEach(async () => {
   await db.query("DELETE FROM alunos");
 });
 
-afterAll(async () => {
-  await db.end();
-});
+// afterAll(async () => {
+//   await db.end();
+// });
 
 describe("API de Alunos", () => {
 
