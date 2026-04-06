@@ -1,6 +1,6 @@
-CREATE DATABASE escola;
+CREATE DATABASE escola_crud;
 
-\c escola;
+\c escola_crud;
 
 CREATE TABLE alunos (
     id SERIAL PRIMARY KEY,

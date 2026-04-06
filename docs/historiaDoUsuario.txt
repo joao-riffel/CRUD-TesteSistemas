@@ -1,0 +1,23 @@
+
+Dentro deste documento, encontra-se a “história do usuário”, seus requisitos e critérios de aceitação.
+
+História do Usuário:
+Como aluno, quero acessar a biblioteca online da escola para que eu possa acompanhar os conteúdos abordados nas aulas.
+
+    Requisitos: 
+        -1 O aluno deve ser capaz de fazer login
+        -2 O aluno deve conseguir visualizar os conteúdos
+
+    Critérios de aceitação 1:
+        -O login deve possuir matrícula e senha válidos.
+        -A matrícula não deve aceitar caracteres especiais, apenas números;
+        -A senha deve conter, obrigatoriamente, no mínimo 8 caracteres, com ao menos uma letra maiúscula, minúscula, número e caractere especial;
+
+
+    Critérios de aceitação 2:
+        -O sistema deve obrigar a realização de login.
+        -Os professores devem organizar os conteúdos de suas disciplinas dentro da biblioteca.
+        -A biblioteca de conteúdos deve estar organizada por série;
+        -Os conteúdos das séries devem estar organizados por disciplina.
+        -O aluno deve conseguir visualizar os materiais didáticos de uma disciplina dentro de uma série;
+        -O aluno deve ser capaz de baixar os conteúdos que deseja.
