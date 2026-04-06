@@ -4,8 +4,7 @@
   "description": "Repositório para criação de um sistema CRUD como meio de avaliação para a matéria de Teste de Sistemas.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,9 +25,5 @@
   "devDependencies": {
     "jest": "^30.3.0",
     "supertest": "^7.2.2"
-  },
-  "scripts": {
-    "test": "jest"
   }
-
 }
